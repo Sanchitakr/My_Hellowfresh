@@ -15,8 +15,9 @@ ADD Model/* ./Model
 COPY requirements.txt ./
 RUN pip install -r requirements.txt
 
-# RUN pip install --no-cache-dir -r requirements.txt
+
+RUN hello.sh
+
 
 # exponsing the port for api
 EXPOSE 5000
-CMD ["python",  "./app.py"]
