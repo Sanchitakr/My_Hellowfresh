@@ -1,0 +1,9 @@
+
+Flask == 1.1.1
+Werkzeug == 0.16.0
+Flask-PyMongo == 2.3.0
+pytest 
+python-dotenv 
+flask_restplus 
+flask_jwt 
+
