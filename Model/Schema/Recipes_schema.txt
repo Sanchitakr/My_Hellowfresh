@@ -1,0 +1,173 @@
+{
+  "fields": [
+    {
+      "name": "_id",
+      "path": "_id",
+      "count": 1,
+      "types": [
+        {
+          "name": "String",
+          "bsonType": "String",
+          "path": "_id",
+          "count": 1,
+          "values": [
+            "R3"
+          ],
+          "total_count": 0,
+          "probability": 1,
+          "unique": 1,
+          "has_duplicates": false
+        }
+      ],
+      "total_count": 1,
+      "type": "String",
+      "has_duplicates": false,
+      "probability": 1
+    },
+    {
+      "name": "feedbacks",
+      "path": "feedbacks",
+      "count": 1,
+      "types": [
+        {
+          "name": "String",
+          "bsonType": "String",
+          "path": "feedbacks",
+          "count": 1,
+          "values": [
+            "f3"
+          ],
+          "total_count": 0,
+          "probability": 1,
+          "unique": 1,
+          "has_duplicates": false
+        }
+      ],
+      "total_count": 1,
+      "type": "String",
+      "has_duplicates": false,
+      "probability": 1
+    },
+    {
+      "name": "ingredients",
+      "path": "ingredients",
+      "count": 1,
+      "types": [
+        {
+          "name": "Array",
+          "bsonType": "Array",
+          "path": "ingredients",
+          "count": 1,
+          "types": [
+            {
+              "name": "String",
+              "bsonType": "String",
+              "path": "ingredients",
+              "count": 11,
+              "values": [
+                "1 1/4 pounds ground chuck",
+                "One 15-ounce can tomato sauce",
+                "1/2 teaspoon salt",
+                "Freshly ground black pepper",
+                "8 ounces egg noodles",
+                "1/2 cup sour cream",
+                "1 1/4 cups small curd cottage cheese",
+                "Pinch red pepper flakes",
+                "1/2 cup sliced green onions (less to taste)",
+                "1 cup grated sharp Cheddar",
+                "Crusty French bread, for serving"
+              ],
+              "total_count": 0,
+              "probability": 1,
+              "unique": 11,
+              "has_duplicates": false
+            }
+          ],
+          "lengths": [
+            11
+          ],
+          "total_count": 11,
+          "probability": 1,
+          "average_length": 11
+        }
+      ],
+      "total_count": 1,
+      "type": "Array",
+      "has_duplicates": false,
+      "probability": 1
+    },
+    {
+      "name": "instructions",
+      "path": "instructions",
+      "count": 1,
+      "types": [
+        {
+          "name": "String",
+          "bsonType": "String",
+          "path": "instructions",
+          "count": 1,
+          "values": [
+            "Preheat the oven to 350 degrees F.Brown the ground chuck in a large skillet. Drain the fat, and then add the tomato sauce, 1/2 teaspoon salt and plenty of freshly ground black pepper. Stir, and then simmer while you prepare the other ingredients.Cook the egg noodles until al dente. Drain and set aside.In a medium bowl, combine the sour cream and cottage cheese. Add plenty of freshly ground black pepper and a pinch of red pepper flakes. Add to the noodles and stir. Add the green onions and stir.To assemble, add half of the noodles to a baking dish. Top with half the meat mixture, and then sprinkle on half the grated Cheddar. Repeat with noodles, meat and then a final layer of cheese. Bake until all the cheese is melted, about 20 minutes.Serve with crusty French bread.To freeze: Assemble the Sour Cream Noodle Bake in a disposable aluminum oven-proof pan and seal the top of the container with the lid or heavy foil. Seal the edges to prevent freezer burn and place in the freezer.To cook from frozen: Place directly in a 375-degree F oven and bake, covered, for 45 minutes. Remove the lid and bake until lightly brown and bubbly, about 20 minutes more."
+          ],
+          "total_count": 0,
+          "probability": 1,
+          "unique": 1,
+          "has_duplicates": false
+        }
+      ],
+      "total_count": 1,
+      "type": "String",
+      "has_duplicates": false,
+      "probability": 1
+    },
+    {
+      "name": "mealplanid",
+      "path": "mealplanid",
+      "count": 1,
+      "types": [
+        {
+          "name": "String",
+          "bsonType": "String",
+          "path": "mealplanid",
+          "count": 1,
+          "values": [
+            "M3"
+          ],
+          "total_count": 0,
+          "probability": 1,
+          "unique": 1,
+          "has_duplicates": false
+        }
+      ],
+      "total_count": 1,
+      "type": "String",
+      "has_duplicates": false,
+      "probability": 1
+    },
+    {
+      "name": "title",
+      "path": "title",
+      "count": 1,
+      "types": [
+        {
+          "name": "String",
+          "bsonType": "String",
+          "path": "title",
+          "count": 1,
+          "values": [
+            "Sour Cream Noodle Bake"
+          ],
+          "total_count": 0,
+          "probability": 1,
+          "unique": 1,
+          "has_duplicates": false
+        }
+      ],
+      "total_count": 1,
+      "type": "String",
+      "has_duplicates": false,
+      "probability": 1
+    }
+  ],
+  "count": 1
+}

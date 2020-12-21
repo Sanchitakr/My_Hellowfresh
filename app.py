@@ -54,9 +54,14 @@ def users():
                 mimetype="application/json"
             )
         if request.method == 'POST':
-            _json = request.get_json
+            _json = request.get_json()
             result = db.Users.insert_one(_json)
-            return Response(response=dumps({"message": "user created", "id": f"{result.inserted_id}"}, default=str), status=200, mimetype="application/json")
+            return Response(
+                response=dumps({"message": "Users added!", "id": f"{result.inserted_id}"
+                                }, default=str),
+                status=200,
+                mimetype="application/json"
+            )
     except Exception as e:
         print(e)
         return Response(
