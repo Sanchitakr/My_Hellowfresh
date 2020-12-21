@@ -6,4 +6,5 @@ pytest
 python-dotenv 
 flask_restplus 
 flask_jwt 
+pytest == 6.2.1
 

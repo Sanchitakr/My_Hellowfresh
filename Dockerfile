@@ -21,3 +21,4 @@ RUN hello.sh
 
 # exponsing the port for api
 EXPOSE 5000
+CMD ["python",  "./app.py"]
