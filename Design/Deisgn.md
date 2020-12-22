@@ -140,6 +140,6 @@ But if test are to be conducted in the terminal, run :
 pytest Test_Get_User.py
 ```
 
-Whole Design.md can be dowloaded with the word doc in the current folder.
+
 
 
