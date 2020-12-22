@@ -1,5 +1,4 @@
 import werkzeug
-werkzeug.cached_property = werkzeug.utils.cached_property
 from flask_pymongo import PyMongo
 from flask import Flask, request, Response
 # from werkzeug.security import generate_password_hash, check_password_hash
@@ -7,6 +6,8 @@ from flask_restplus import Api
 from flask_jwt import JWT
 from Settings.security import authenticate, identity
 from bson.json_util import dumps
+
+werkzeug.cached_property = werkzeug.utils.cached_property
 
 
 # '''
@@ -55,9 +56,9 @@ def users():
             )
         if request.method == 'POST':
             _json = request.get_json()
-            result = db.Users.insert_one(_json)
+            result = db.Meal_Plan.insert_one(_json)
             return Response(
-                response=dumps({"message": "Users added!", "id": f"{result.inserted_id}"
+                response=dumps({"message": "User added!", "id": f"{result.inserted_id}"
                                 }, default=str),
                 status=200,
                 mimetype="application/json"
@@ -365,68 +366,68 @@ def feedback():
         )
 
 
-# @app.route("/Feedbacks/<string:username>", methods=['PUT'])
-# # @jwt_required()
-# def update_feedback(username):
-#     try:
-#         filter = {'username': username}
-#         newvalues = {"$set": {"mealplanid": request.form["mealplanid"],
-#                               "recipeid": request.form["recipeid"],
-#                               "username": request.form["username"],
-#                               "userid": request.form["userid"],
-#                               "feedback": request.form["feedback"],
-#                               }}
-#         dbResponse = db.Feedbacks.update_many(filter, newvalues)
-#         if dbResponse.modified_count == 1:
-#             return Response(
-#                 response=dumps({"message": "updated!!"}, default=str),
-#                 status=200,
-#                 mimetype="application/json"
-#             )
-#         return Response(
-#             response=dumps(
-#                 {"message": "Nothing to Update!!"}, default=str),
-#             status=200,
-#             mimetype="application/json"
-#         )
-#     except Exception as e:
-#         print(e)
-#         return Response(
-#             response=dumps(
-#                 {"message": "OOPS!! can't update"}, default=str),
-#             status=500,
-#             mimetype="application/json"
-#         )
+@app.route("/Feedbacks/<string:username>", methods=['PUT'])
+# @jwt_required()
+def update_feedback(username):
+    try:
+        filter = {'username': username}
+        newvalues = {"$set": {"mealplanid": request.form["mealplanid"],
+                              "recipeid": request.form["recipeid"],
+                              "username": request.form["username"],
+                              "userid": request.form["userid"],
+                              "feedback": request.form["feedback"],
+                              }}
+        dbResponse = db.Feedbacks.update_many(filter, newvalues)
+        if dbResponse.modified_count == 1:
+            return Response(
+                response=dumps({"message": "updated!!"}, default=str),
+                status=200,
+                mimetype="application/json"
+            )
+        return Response(
+            response=dumps(
+                {"message": "Nothing to Update!!"}, default=str),
+            status=200,
+            mimetype="application/json"
+        )
+    except Exception as e:
+        print(e)
+        return Response(
+            response=dumps(
+                {"message": "OOPS!! can't update"}, default=str),
+            status=500,
+            mimetype="application/json"
+        )
 
 
-# @app.route("/Feedbacks/<string:title>", methods=["DELETE"])
-# # @jwt_required()
-# def delete_feedbacks(title):
-#     try:
-#         dbResponse = db.Feedbacks.delete_one({"title": title})
-#         if dbResponse.deleted_count == 1:
-#             return Response(
-#                 response=dumps(
-#                     {"message": "Deleted!!", "title": f"{title}"}, default=str),
-#                 status=200,
-#                 mimetype="application/json"
-#             )
+@app.route("/Feedbacks/<string:title>", methods=["DELETE"])
+# @jwt_required()
+def delete_feedbacks(title):
+    try:
+        dbResponse = db.Feedbacks.delete_one({"title": title})
+        if dbResponse.deleted_count == 1:
+            return Response(
+                response=dumps(
+                    {"message": "Deleted!!", "title": f"{title}"}, default=str),
+                status=200,
+                mimetype="application/json"
+            )
 
-#         return Response(
-#             response=dumps(
-#                 {"message": "Not Found!!", "title": f"{title}"}, default=str),
-#             status=404,
-#             mimetype="application/json"
-#         )
-#     except Exception as e:
-#         print(e)
-#         return Response(
-#             response=dumps(
-#                 {"message": "OOPS!! can't delete"}, default=str),
-#             status=500,
-#             mimetype="application/json"
-#         )
+        return Response(
+            response=dumps(
+                {"message": "Not Found!!", "title": f"{title}"}, default=str),
+            status=404,
+            mimetype="application/json"
+        )
+    except Exception as e:
+        print(e)
+        return Response(
+            response=dumps(
+                {"message": "OOPS!! can't delete"}, default=str),
+            status=500,
+            mimetype="application/json"
+        )
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, use_reloader=False)
