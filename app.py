@@ -29,7 +29,7 @@ api = Api(app,
 app.secret_key = "secretkey"
 jwt = JWT(app, authenticate, identity)
 try:
-    app.config['MONGO_URI'] = "mongodb+srv://Hellofresh_user:Hellofresh123@cluster0.giqdc.mongodb.net/HelloFresh"
+    app.config['MONGO_URI'] = "mongodb+srv://Hellofresh_***:*******@cluster0.giqdc.mongodb.net/HelloFresh"
     mongo = PyMongo(app)
     db = mongo.db
 except Exception as e:
