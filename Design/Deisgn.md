@@ -3,6 +3,8 @@
 MongoDB is a document-oriented, open-source database program that is platform-independent. MongoDB, like some other NoSQL databases, stores its data in documents using a 
 JSON structure.
 
+### Solution Blueprint 
+![alt text](https://github.com/Sanchitakr/My_Hellowfresh/blob/finetuned/Design/images/Solution%20Blueprint.png)
 ### 1.	Technology stack 
 - Python 3
 - Flask as web framework
