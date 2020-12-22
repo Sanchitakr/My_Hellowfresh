@@ -65,6 +65,10 @@ Adviced to view collections connected to Cluster using the following MongoDB URL
 ```
 mongodb+srv://Hellofresh_user:Hellofresh123@cluster0.giqdc.mongodb.net/HelloFresh
 ```
+#### Database design :
+
+![alt text](https://github.com/Sanchitakr/My_Hellowfresh/blob/finetuned/Design/images/DB%20Schema.png)
+
 
 #### 5.5.	Security Guidelines
 -	Any PI & sensitive data such as a user password will be encrypted using standard encryption techniques in the system. 
