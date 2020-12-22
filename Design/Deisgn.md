@@ -62,8 +62,9 @@ app.py module creates the endpoints, where the init__.py creates the blueprint f
 #### 5.4.	Database Choice & Operations
 Usually for flexible projects, databases such as MongoDB is preferred for the ease of use. For the current project I have used MongoDB atlas to connect to MongoDB clusers.
 Adviced to view collections connected to Cluster using the following MongoDB URL (branch from private collection):
+##### Complete link is provided via email.
 ```
-mongodb+srv://Hellofresh_user:Hellofresh123@cluster0.giqdc.mongodb.net/HelloFresh
+mongodb+srv://Hellofresh_***:****@cluster0.giqdc.mongodb.net/HelloFresh
 ```
 #### Database design :
 
