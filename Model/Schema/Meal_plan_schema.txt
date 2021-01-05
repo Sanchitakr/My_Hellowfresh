@@ -1,0 +1,140 @@
+{
+  "fields": [
+    {
+      "name": "_id",
+      "path": "_id",
+      "count": 1,
+      "types": [
+        {
+          "name": "String",
+          "bsonType": "String",
+          "path": "_id",
+          "count": 1,
+          "values": [
+            "M2"
+          ],
+          "total_count": 0,
+          "probability": 1,
+          "unique": 1,
+          "has_duplicates": false
+        }
+      ],
+      "total_count": 1,
+      "type": "String",
+      "has_duplicates": false,
+      "probability": 1
+    },
+    {
+      "name": "feedback",
+      "path": "feedback",
+      "count": 1,
+      "types": [
+        {
+          "name": "String",
+          "bsonType": "String",
+          "path": "feedback",
+          "count": 1,
+          "values": [
+            "f1"
+          ],
+          "total_count": 0,
+          "probability": 1,
+          "unique": 1,
+          "has_duplicates": false
+        }
+      ],
+      "total_count": 1,
+      "type": "String",
+      "has_duplicates": false,
+      "probability": 1
+    },
+    {
+      "name": "people",
+      "path": "people",
+      "count": 1,
+      "types": [
+        {
+          "name": "Int32",
+          "bsonType": "Int32",
+          "path": "people",
+          "count": 1,
+          "values": [
+            2
+          ],
+          "total_count": 0,
+          "probability": 1,
+          "unique": 1,
+          "has_duplicates": false
+        }
+      ],
+      "total_count": 1,
+      "type": "Int32",
+      "has_duplicates": false,
+      "probability": 1
+    },
+    {
+      "name": "preference",
+      "path": "preference",
+      "count": 1,
+      "types": [
+        {
+          "name": "String",
+          "bsonType": "String",
+          "path": "preference",
+          "count": 1,
+          "values": [
+            "Meat and Veggies"
+          ],
+          "total_count": 0,
+          "probability": 1,
+          "unique": 1,
+          "has_duplicates": false
+        }
+      ],
+      "total_count": 1,
+      "type": "String",
+      "has_duplicates": false,
+      "probability": 1
+    },
+    {
+      "name": "recipe_id",
+      "path": "recipe_id",
+      "count": 1,
+      "types": [
+        {
+          "name": "Array",
+          "bsonType": "Array",
+          "path": "recipe_id",
+          "count": 1,
+          "types": [
+            {
+              "name": "String",
+              "bsonType": "String",
+              "path": "recipe_id",
+              "count": 2,
+              "values": [
+                "R2",
+                "R1"
+              ],
+              "total_count": 0,
+              "probability": 1,
+              "unique": 2,
+              "has_duplicates": false
+            }
+          ],
+          "lengths": [
+            2
+          ],
+          "total_count": 2,
+          "probability": 1,
+          "average_length": 2
+        }
+      ],
+      "total_count": 1,
+      "type": "Array",
+      "has_duplicates": false,
+      "probability": 1
+    }
+  ],
+  "count": 1
+}

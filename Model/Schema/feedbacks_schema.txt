@@ -1,0 +1,194 @@
+{
+  "fields": [
+    {
+      "name": "_id",
+      "path": "_id",
+      "count": 1,
+      "types": [
+        {
+          "name": "String",
+          "bsonType": "String",
+          "path": "_id",
+          "count": 1,
+          "values": [
+            "f3"
+          ],
+          "total_count": 0,
+          "probability": 1,
+          "unique": 1,
+          "has_duplicates": false
+        }
+      ],
+      "total_count": 1,
+      "type": "String",
+      "has_duplicates": false,
+      "probability": 1
+    },
+    {
+      "name": "feedback",
+      "path": "feedback",
+      "count": 1,
+      "types": [
+        {
+          "name": "Document",
+          "bsonType": "Document",
+          "path": "feedback",
+          "count": 1,
+          "fields": [
+            {
+              "name": "comments",
+              "path": "feedback.comments",
+              "count": 1,
+              "types": [
+                {
+                  "name": "String",
+                  "bsonType": "String",
+                  "path": "feedback.comments",
+                  "count": 1,
+                  "values": [
+                    "spicy!"
+                  ],
+                  "total_count": 0,
+                  "probability": 1,
+                  "unique": 1,
+                  "has_duplicates": false
+                }
+              ],
+              "total_count": 1,
+              "type": "String",
+              "has_duplicates": false,
+              "probability": 1
+            },
+            {
+              "name": "rating",
+              "path": "feedback.rating",
+              "count": 1,
+              "types": [
+                {
+                  "name": "String",
+                  "bsonType": "String",
+                  "path": "feedback.rating",
+                  "count": 1,
+                  "values": [
+                    "2/5"
+                  ],
+                  "total_count": 0,
+                  "probability": 1,
+                  "unique": 1,
+                  "has_duplicates": false
+                }
+              ],
+              "total_count": 1,
+              "type": "String",
+              "has_duplicates": false,
+              "probability": 1
+            }
+          ],
+          "total_count": 0,
+          "probability": 1
+        }
+      ],
+      "total_count": 1,
+      "type": "Document",
+      "has_duplicates": false,
+      "probability": 1
+    },
+    {
+      "name": "mealplanid",
+      "path": "mealplanid",
+      "count": 1,
+      "types": [
+        {
+          "name": "String",
+          "bsonType": "String",
+          "path": "mealplanid",
+          "count": 1,
+          "values": [
+            "null"
+          ],
+          "total_count": 0,
+          "probability": 1,
+          "unique": 1,
+          "has_duplicates": false
+        }
+      ],
+      "total_count": 1,
+      "type": "String",
+      "has_duplicates": false,
+      "probability": 1
+    },
+    {
+      "name": "recipeid",
+      "path": "recipeid",
+      "count": 1,
+      "types": [
+        {
+          "name": "String",
+          "bsonType": "String",
+          "path": "recipeid",
+          "count": 1,
+          "values": [
+            "R3"
+          ],
+          "total_count": 0,
+          "probability": 1,
+          "unique": 1,
+          "has_duplicates": false
+        }
+      ],
+      "total_count": 1,
+      "type": "String",
+      "has_duplicates": false,
+      "probability": 1
+    },
+    {
+      "name": "userid",
+      "path": "userid",
+      "count": 1,
+      "types": [
+        {
+          "name": "String",
+          "bsonType": "String",
+          "path": "userid",
+          "count": 1,
+          "values": [
+            "u00T"
+          ],
+          "total_count": 0,
+          "probability": 1,
+          "unique": 1,
+          "has_duplicates": false
+        }
+      ],
+      "total_count": 1,
+      "type": "String",
+      "has_duplicates": false,
+      "probability": 1
+    },
+    {
+      "name": "username",
+      "path": "username",
+      "count": 1,
+      "types": [
+        {
+          "name": "String",
+          "bsonType": "String",
+          "path": "username",
+          "count": 1,
+          "values": [
+            "Testing123"
+          ],
+          "total_count": 0,
+          "probability": 1,
+          "unique": 1,
+          "has_duplicates": false
+        }
+      ],
+      "total_count": 1,
+      "type": "String",
+      "has_duplicates": false,
+      "probability": 1
+    }
+  ],
+  "count": 1
+}

@@ -1,38 +1,24 @@
-import werkzeug
+'''
+TO-DO :
+
+1. CRUD methods for Users, Mealplan,Recipe and Feedbacks as in the MongoDB.
+2. create JWT tokens or API tokens
+
+'''
 from flask_pymongo import PyMongo
 from flask import Flask, request, Response
-# from werkzeug.security import generate_password_hash, check_password_hash
-from flask_restplus import Api
 from flask_jwt import JWT
 from Settings.security import authenticate, identity
 from bson.json_util import dumps
-
-werkzeug.cached_property = werkzeug.utils.cached_property
-
-
-# '''
-# TO-DO :
-
-# 1. CRUD methods for Users, Mealplan,Recipe and Feedbacks as in the MongoDB.
-# 2. create JWT tokens or API tokens
-
-# '''
-
+from pymongo import MongoClient
 
 app = Flask(__name__)
-api = Api(app,
-          default="Collections",
-          title="Hello fresh weekly meal planner.",
-          description="a Flask-pymongo data service that allows a client to \
-                    read and store some publicly available Hello fresh recipes\
-                     and meal plan, and allow the consumers to access the data\
-                    through a REST API")
+
 app.secret_key = "secretkey"
 jwt = JWT(app, authenticate, identity)
 try:
-    app.config['MONGO_URI'] = "mongodb+srv://Hellofresh_***:*******@cluster0.giqdc.mongodb.net/HelloFresh"
-    mongo = PyMongo(app)
-    db = mongo.db
+    client = MongoClient(port=27017)
+    db = client.Test
 except Exception as e:
     print(e, "cannot connect to the database")
 
@@ -56,7 +42,7 @@ def users():
             )
         if request.method == 'POST':
             _json = request.get_json()
-            result = db.Meal_Plan.insert_one(_json)
+            result = db.Users.insert_one(_json)
             return Response(
                 response=dumps({"message": "User added!", "id": f"{result.inserted_id}"
                                 }, default=str),
@@ -78,7 +64,8 @@ def users():
 def update(name):
     try:
         filter = {'name': name}
-        newvalues = {"$set": {'name': request.form["name"],'email': request.form["email"],'mealplanid': request.form["mealplanid"], 'feedbackid': request.form["feedbackid"]}}
+        newvalues = {"$set": {'name': request.form["name"], 'email': request.form["email"],
+                              'mealplanid': request.form["mealplanid"], 'feedbackid': request.form["feedbackid"]}}
         dbResponse = db.Users.update_many(filter, newvalues)
         if dbResponse.modified_count == 1:
             return Response(
@@ -106,7 +93,7 @@ def update(name):
 # @jwt_required()
 def delete(name):
     try:
-        dbResponse=db.Users.delete_one({"name": name})
+        dbResponse = db.Users.delete_one({"name": name})
         if dbResponse.deleted_count == 1:
             return Response(
                 response=dumps(
@@ -140,18 +127,18 @@ def delete(name):
 def mealPlan():
     try:
         if request.method == 'GET':
-            data=list(db.Meal_Plan.find())
+            data = list(db.Meal_Plan.find())
             print(data)
             for plan in data:
-                plan["_id"]=str(plan["_id"])
+                plan["_id"] = str(plan["_id"])
             return Response(
                 response=dumps(data, default=str),
                 status=200,
                 mimetype="application/json"
             )
         if request.method == 'POST':
-            _json=request.get_json()
-            result=db.Meal_Plan.insert_one(_json)
+            _json = request.get_json()
+            result = db.Meal_Plan.insert_one(_json)
             return Response(
                 response=dumps({"message": "Meal Plan added!", "id": f"{result.inserted_id}"
                                 }, default=str),
@@ -172,12 +159,12 @@ def mealPlan():
 # @jwt_required()
 def update_meal(preference):
     try:
-        filter={'preference': preference}
-        newvalues={"$set": {"recipe_id": request.form["recipe_id"],
+        filter = {'preference': preference}
+        newvalues = {"$set": {"recipe_id": request.form["recipe_id"],
                               "preference": request.form["preference"],
                               "people": request.form["people"],
                               "feedback": request.form["feedback"]}}
-        dbResponse=db.Meal_Plan.update_many(filter, newvalues)
+        dbResponse = db.Meal_Plan.update_many(filter, newvalues)
         if dbResponse.modified_count == 1:
             return Response(
                 response=dumps({"message": "updated!!"}, default=str),
@@ -204,7 +191,7 @@ def update_meal(preference):
 # @jwt_required()
 def delete_plan(preference):
     try:
-        dbResponse=db.Meal_Plan.delete_one({"preference": preference})
+        dbResponse = db.Meal_Plan.delete_one({"preference": preference})
         if dbResponse.deleted_count == 1:
             return Response(
                 response=dumps(
@@ -237,18 +224,18 @@ def delete_plan(preference):
 def meal():
     try:
         if request.method == 'GET':
-            data=list(db.Recipes.find())
+            data = list(db.Recipes.find())
             print(data)
             for meal in data:
-                meal["_id"]=str(meal["_id"])
+                meal["_id"] = str(meal["_id"])
             return Response(
                 response=dumps(data, default=str),
                 status=200,
                 mimetype="application/json"
             )
         if request.method == 'POST':
-            _json=request.get_json()
-            result=db.Recipes.insert_one(_json)
+            _json = request.get_json()
+            result = db.Recipes.insert_one(_json)
             # resp = jsonify('Result json %s ' % result.inserted_id)
 
             return Response(
@@ -271,13 +258,13 @@ def meal():
 # @jwt_required()
 def update_recipe(title):
     try:
-        filter={'title': title}
-        newvalues={"$set": {"instructions": request.form["instructions"],
+        filter = {'title': title}
+        newvalues = {"$set": {"instructions": request.form["instructions"],
                               "ingredients": request.form["ingredients"],
                               "title": request.form["title"],
                               "feedbacks": request.form["feedbacks"],
                               "mealplanid": request.form["mealplanid"]}}
-        dbResponse=db.Recipes.update_many(filter, newvalues)
+        dbResponse = db.Recipes.update_many(filter, newvalues)
         if dbResponse.modified_count == 1:
             return Response(
                 response=dumps({"message": "updated!!"}, default=str),
@@ -304,7 +291,7 @@ def update_recipe(title):
 # @jwt_required()
 def delete_recipe(title):
     try:
-        dbResponse=db.Meal_Plan.delete_one({"title": title})
+        dbResponse = db.Meal_Plan.delete_one({"title": title})
         print("delete record", dbResponse.raw_result)
         if dbResponse.deleted_count == 1:
             return Response(
@@ -338,18 +325,18 @@ def delete_recipe(title):
 def feedback():
     try:
         if request.method == 'GET':
-            data=list(db.Feedbacks.find())
+            data = list(db.Feedbacks.find())
             print(data)
             for feedback in data:
-                feedback["_id"]=str(feedback["_id"])
+                feedback["_id"] = str(feedback["_id"])
             return Response(
                 response=dumps(data, default=str),
                 status=200,
                 mimetype="application/json"
             )
         if request.method == 'POST':
-            _json=request.get_json()
-            result=db.Feedbacks.insert_one(_json)
+            _json = request.get_json()
+            result = db.Feedbacks.insert_one(_json)
             return Response(
                 response=dumps({"message": "Feedbacks is added!", "id": f"{result.inserted_id}"
                                 }, default=str),

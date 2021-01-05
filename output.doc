@@ -1,0 +1,55 @@
+Folder PATH listing for volume New Volume
+Volume serial number is AA46-90FC
+E:.
+|   .gitattributes
+|   .gitignore
+|   app.py
+|   Dockerfile
+|   hello.sh
+|   LICENSE
+|   MAKEFILE
+|   output.doc
+|   README.md
+|   requirements.txt
+|   
++---.vscode
+|       settings.json
+|       
++---Database
+|   |   db.py
+|   |   
+|   \---recipes_raw
+|           LICENSE
+|           recipes_raw_nosource_fn.json
+|           
++---Design
+|       Solution design document.docx
+|       
++---Model
+|   |   user.py
+|   |   
+|   +---Schema
+|   |       feedbacks_schema.txt
+|   |       Meal_plan_schema.txt
+|   |       Recipes_schema.txt
+|   |       Users_schema.txt
+|   |       
+|   \---__pycache__
+|           user.cpython-37.pyc
+|           
++---Postman_Collection
+|       Hellofresh.postman_collection.json
+|       
++---Settings
+|   |   security.py
+|   |   settings.py
+|   |   
+|   \---__pycache__
+|           security.cpython-37.pyc
+|           
+\---Tests
+        .env.test
+        BaseCase.py
+        Test_Get_User.py
+        __init__.py
+        

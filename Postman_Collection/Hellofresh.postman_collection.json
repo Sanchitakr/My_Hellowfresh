@@ -1,0 +1,2132 @@
+{
+	"info": {
+		"_postman_id": "c0039ec3-3e96-44a4-b936-0e4220179dc4",
+		"name": "Hellofresh",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authorization",
+			"item": [
+				{
+					"name": "To get access token ",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDg0NTQ2MjYsImlhdCI6MTYwODQ1NDMyNiwibmJmIjoxNjA4NDU0MzI2LCJpZGVudGl0eSI6MX0.O1ReWIw8cwUsEkfIuND2xSVUiePOHG-6DDK3AKn9Q20",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"Saravanan\",\r\n    \"password\":\"@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/auth",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"auth"
+							]
+						},
+						"description": "http://127.0.0.1:5000/auth\r\n\r\nin Raw -> Json:\r\nadd \r\n{\r\n    \"username\":\"Saravanan\",\r\n    \"password\":\"@123\"\r\n}"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Request Methods",
+			"item": [
+				{
+					"name": "POST Request  (Recipes) Raw Json",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseJSON;\r",
+									"\r",
+									"try { \r",
+									"    responseJSON = JSON.parse(responseBody); \r",
+									"    tests['response is valid JSON'] = true;\r",
+									"}\r",
+									"catch (e) { \r",
+									"    responseJSON = {}; \r",
+									"    tests['response is valid JSON'] = false;\r",
+									"}\r",
+									"tests['response has post message'] = _.has(responseJSON, 'message');\r",
+									"tests['response has post id if successful POST'] = _.has(responseJSON, 'id');\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "Saravanan",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "username",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id\":\"R3\",\r\n    \"instructions\": \"Preheat the oven to 350 degrees F.Brown the ground chuck in a large skillet. Drain the fat, and then add the tomato sauce, 1/2 teaspoon salt and plenty of freshly ground black pepper. Stir, and then simmer while you prepare the other ingredients.Cook the egg noodles until al dente. Drain and set aside.In a medium bowl, combine the sour cream and cottage cheese. Add plenty of freshly ground black pepper and a pinch of red pepper flakes. Add to the noodles and stir. Add the green onions and stir.To assemble, add half of the noodles to a baking dish. Top with half the meat mixture, and then sprinkle on half the grated Cheddar. Repeat with noodles, meat and then a final layer of cheese. Bake until all the cheese is melted, about 20 minutes.Serve with crusty French bread.To freeze: Assemble the Sour Cream Noodle Bake in a disposable aluminum oven-proof pan and seal the top of the container with the lid or heavy foil. Seal the edges to prevent freezer burn and place in the freezer.To cook from frozen: Place directly in a 375-degree F oven and bake, covered, for 45 minutes. Remove the lid and bake until lightly brown and bubbly, about 20 minutes more.\",\r\n    \"ingredients\": [\r\n      \"1 1/4 pounds ground chuck\",\r\n      \"One 15-ounce can tomato sauce\",\r\n      \"1/2 teaspoon salt\",\r\n      \"Freshly ground black pepper\",\r\n      \"8 ounces egg noodles\",\r\n      \"1/2 cup sour cream\",\r\n      \"1 1/4 cups small curd cottage cheese\",\r\n      \"Pinch red pepper flakes\",\r\n      \"1/2 cup sliced green onions (less to taste)\",\r\n      \"1 cup grated sharp Cheddar\",\r\n      \"Crusty French bread, for serving\"\r\n    ],\r\n    \"title\": \"Sour Cream Noodle Bake\",\r\n    \"feedbacks\": \"f3\",\r\n    \"mealplanid\":\"M3\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/Recipes",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"Recipes"
+							]
+						},
+						"description": "http://localhost:5000/Recipes\r\n\r\nUSed to add new recipes to the database.\r\nAPI key authorization enabled.\r\nTest script in chai"
+					},
+					"response": [
+						{
+							"name": "POST Request  (Recipes) Raw Json - response example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"_id\":\"R3\",\r\n    \"instructions\": \"Preheat the oven to 350 degrees F.Brown the ground chuck in a large skillet. Drain the fat, and then add the tomato sauce, 1/2 teaspoon salt and plenty of freshly ground black pepper. Stir, and then simmer while you prepare the other ingredients.Cook the egg noodles until al dente. Drain and set aside.In a medium bowl, combine the sour cream and cottage cheese. Add plenty of freshly ground black pepper and a pinch of red pepper flakes. Add to the noodles and stir. Add the green onions and stir.To assemble, add half of the noodles to a baking dish. Top with half the meat mixture, and then sprinkle on half the grated Cheddar. Repeat with noodles, meat and then a final layer of cheese. Bake until all the cheese is melted, about 20 minutes.Serve with crusty French bread.To freeze: Assemble the Sour Cream Noodle Bake in a disposable aluminum oven-proof pan and seal the top of the container with the lid or heavy foil. Seal the edges to prevent freezer burn and place in the freezer.To cook from frozen: Place directly in a 375-degree F oven and bake, covered, for 45 minutes. Remove the lid and bake until lightly brown and bubbly, about 20 minutes more.\",\r\n    \"ingredients\": [\r\n      \"1 1/4 pounds ground chuck\",\r\n      \"One 15-ounce can tomato sauce\",\r\n      \"1/2 teaspoon salt\",\r\n      \"Freshly ground black pepper\",\r\n      \"8 ounces egg noodles\",\r\n      \"1/2 cup sour cream\",\r\n      \"1 1/4 cups small curd cottage cheese\",\r\n      \"Pinch red pepper flakes\",\r\n      \"1/2 cup sliced green onions (less to taste)\",\r\n      \"1 cup grated sharp Cheddar\",\r\n      \"Crusty French bread, for serving\"\r\n    ],\r\n    \"title\": \"Sour Cream Noodle Bake\",\r\n    \"feedbacks\": \"f3\",\r\n    \"mealplanid\":\"M3\"\r\n\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/Recipes",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"Recipes"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/0.16.0 Python/3.7.4"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 21 Dec 2020 02:59:04 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Recipe is added!\",\n    \"id\": \"R3\"\n}"
+						}
+					]
+				},
+				{
+					"name": "GET Request  (users)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseJSON;\r",
+									"\r",
+									"try { \r",
+									"    responseJSON = JSON.parse(responseBody); \r",
+									"    tests['Response is valid JSON'] = true;\r",
+									"    \r",
+									"}\r",
+									"catch (e) { \r",
+									"    responseJSON = {}; \r",
+									"    tests['Response is not a valid JSON'] = false;\r",
+									"}\r",
+									"\r",
+									"\r",
+									"pm.test(\"Request was successful\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"//parsing the Response body to a variable\r",
+									"responseJson = JSON.parse(responseBody);\r",
+									"\r",
+									"//Finding the length of the Response Array\r",
+									"//set the number based on entries in db if not test won't pass\r",
+									"var list = responseJson.length;\r",
+									"console.log(list);\r",
+									"tests[\"Validate service returns number of entries in the database \"] = list === 1;\r",
+									"\r",
+									"pm.test(\"Validate service returns some entries (response is not empty) \", function(){\r",
+									"    pm.expect(responseJSON.length).to.be.above(0);\r",
+									"});\r",
+									"\r",
+									"// Getting values from response\r",
+									"var jsonData = pm.response.json();\r",
+									"var username = jsonData.name;\r",
+									"pm.globals.set(\"username\", username);\r",
+									"pm.test(\"Testing if query 'name' matches with response 'name'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.value).to.eql(pm.globals.get(\"username\"));\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "Saravanan",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "username",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/users?name=Testing123",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Testing123"
+								}
+							]
+						},
+						"description": "http://127.0.0.1:5000/users\r\n\r\nGet list of users in the database\r\n\r\nAPI authorization is enabled.\r\n\r\nTests scripts for E2E testing is written in Chai"
+					},
+					"response": [
+						{
+							"name": "GET Request  (users) - response example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/users?name=Testing123",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"users"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Testing123"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "112"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/0.16.0 Python/3.7.4"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 21 Dec 2020 01:16:23 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"u00T\",\n        \"name\": \"Testing123\",\n        \"email\": \"Testing123@gmail.com\",\n        \"mealplanid\": \"M1\",\n        \"feedbackid\": \"F1\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "GET Request (Recipes)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseJSON;\r",
+									"\r",
+									"try { \r",
+									"    responseJSON = JSON.parse(responseBody); \r",
+									"    tests['Response is valid JSON'] = true;\r",
+									"    \r",
+									"}\r",
+									"catch (e) { \r",
+									"    responseJSON = {}; \r",
+									"    tests['Response is not a valid JSON'] = false;\r",
+									"}\r",
+									"\r",
+									"\r",
+									"pm.test(\"Request was successful\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"//parsing the Response body to a variable\r",
+									"responseJson = JSON.parse(responseBody);\r",
+									"\r",
+									"//Finding the length of the Response Array\r",
+									"//set the number based on entries in db if not test won't pass\r",
+									"var list = responseJson.length;\r",
+									"console.log(list);\r",
+									"tests[\"Validate service returns number of entries in the database \"] = list === 3;\r",
+									"\r",
+									"pm.test(\"Validate service returns some entries (response is not empty) \", function(){\r",
+									"    pm.expect(responseJSON.length).to.be.above(0);\r",
+									"});\r",
+									"\r",
+									"// Getting values from response\r",
+									"var jsonData = pm.response.json();\r",
+									"var title = jsonData.title;\r",
+									"pm.globals.set(\"title\", title);\r",
+									"pm.test(\"Testing if query 'title' matches with response 'title'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.value).to.eql(pm.globals.get(\"title\"));\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "Saravanan",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "username",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/Recipes?title=Sour Cream Noodle Bake",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"Recipes"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "Sour Cream Noodle Bake"
+								}
+							]
+						},
+						"description": "URL:\r\nhttp://localhost:5000/Recipes?title=Sour Cream Noodle Bake\r\n\r\nAPI authentication enabled.\r\nParameters to test are passed using \"params\" or in the URL.\r\nTest using Chai."
+					},
+					"response": [
+						{
+							"name": "GET request (Recipes) - response example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/Recipes",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"Recipes"
+									],
+									"query": [
+										{
+											"key": "title",
+											"value": "Sour Cream Noodle Bake",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "4290"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/0.16.0 Python/3.7.4"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 21 Dec 2020 02:04:11 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"R1\",\n        \"instructions\": \"Toss ingredients lightly and spoon into a buttered baking dish. Top with additional crushed cracker crumbs, and brush with melted butter. Bake in a preheated at 350 degrees oven for 25 to 30 minutes or until delicately browned.\",\n        \"ingredients\": [\n            \"1/2 cup celery, finely chopped\",\n            \"1 small green pepper finely chopped\",\n            \"1/2 cup finely sliced green onions\",\n            \"1/4 cup chopped parsley\",\n            \"1 pound crabmeat\",\n            \"1 1/4 cups coarsely crushed cracker crumbs\",\n            \"1/2 teaspoon salt\",\n            \"3/4 teaspoons dry mustard\",\n            \"Dash hot sauce\",\n            \"1/4 cup heavy cream\",\n            \"1/2 cup melted butter\"\n        ],\n        \"title\": \"Grammie Hamblet's Deviled Crab\",\n        \"feedbacks\": \"f2\",\n        \"mealplanid\": \"M2\"\n    },\n    {\n        \"_id\": \"R2\",\n        \"instructions\": \"In a large Dutch oven (preferably enameled cast iron) over medium-high heat, render the bacon until just starting to crisp, 6 to 7 minutes, stirring as needed. Remove 1 tablespoon of the bacon fat and set aside. Add the onions and jalapenos and cook until the onions are translucent, about 5 minutes more. Add in the garlic cook 1 to 2 minutes. Remove all from the pot to a small bowl. Set aside.\\nWipe down the inside of the pot, add the reserved 1 tablespoon bacon fat and, when starting to smoke, add in 1/3 to 1/2 of the steak and cook, stirring as needed until just starting to brown, about 8 minutes. Remove to the vegetable bowl, repeat with the remaining steak.\\nOnce the steak is cooked, deglaze with 1 tablespoon apple cider vinegar. Then return all the vegetables and cooked steak back to the pot and add in the beans, including the liquid in the can. Add the molasses, brown sugar, soy and ketchup, and stir to combine. Bring to a simmer over low heat, cover and cook for 2 hours, stirring every 20 to 30 minutes to assure that the bottom doesn't stick.\\nAdd in more apple cider vinegar, a few tablespoons at a time to personal taste, and serve with crusty bread.\",\n        \"ingredients\": [\n            \"2 pounds skirt steak, cut into 1/2-inch dice\",\n            \"Kosher salt and fresh cracked black pepper\",\n            \"4 to 6 slices thick-cut applewood smoked bacon, 1/4-inch diced (about 1 cup)\",\n            \"1 1/2 cups 1/4-inch diced red onion\",\n            \"1/2 cup seeded and finely diced jalapenos (2 medium)\",\n            \"3 tablespoons minced garlic\",\n            \"1 teaspoon kosher salt\",\n            \"2 teaspoons fresh cracked black pepper\",\n            \"Apple cider vinegar, best quality\",\n            \"1 (15-ounce) can cannellini beans, with liquid\",\n            \"1 (15-ounce) can lima beans, with liquid\",\n            \"1 (15-ounce) can kidney beans, with liquid\",\n            \"1/3 cup molasses\",\n            \"2 tablespoons dark brown sugar\",\n            \"3 tablespoons soy sauce\",\n            \"1/3 cup ketchup\",\n            \"Crusty bread, for serving\"\n        ],\n        \"title\": \"Infineon Raceway Baked Beans\",\n        \"feedbacks\": \"f2\",\n        \"mealplanid\": \"M1\"\n    },\n    {\n        \"_id\": \"R3\",\n        \"instructions\": \"Preheat the oven to 350 degrees F.Brown the ground chuck in a large skillet. Drain the fat, and then add the tomato sauce, 1/2 teaspoon salt and plenty of freshly ground black pepper. Stir, and then simmer while you prepare the other ingredients.Cook the egg noodles until al dente. Drain and set aside.In a medium bowl, combine the sour cream and cottage cheese. Add plenty of freshly ground black pepper and a pinch of red pepper flakes. Add to the noodles and stir. Add the green onions and stir.To assemble, add half of the noodles to a baking dish. Top with half the meat mixture, and then sprinkle on half the grated Cheddar. Repeat with noodles, meat and then a final layer of cheese. Bake until all the cheese is melted, about 20 minutes.Serve with crusty French bread.To freeze: Assemble the Sour Cream Noodle Bake in a disposable aluminum oven-proof pan and seal the top of the container with the lid or heavy foil. Seal the edges to prevent freezer burn and place in the freezer.To cook from frozen: Place directly in a 375-degree F oven and bake, covered, for 45 minutes. Remove the lid and bake until lightly brown and bubbly, about 20 minutes more.\",\n        \"ingredients\": [\n            \"1 1/4 pounds ground chuck\",\n            \"One 15-ounce can tomato sauce\",\n            \"1/2 teaspoon salt\",\n            \"Freshly ground black pepper\",\n            \"8 ounces egg noodles\",\n            \"1/2 cup sour cream\",\n            \"1 1/4 cups small curd cottage cheese\",\n            \"Pinch red pepper flakes\",\n            \"1/2 cup sliced green onions (less to taste)\",\n            \"1 cup grated sharp Cheddar\",\n            \"Crusty French bread, for serving\"\n        ],\n        \"title\": \"Sour Cream Noodle Bake\",\n        \"feedbacks\": \"f3\",\n        \"mealplanid\": \"M3\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "GET Request (Mealplan)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseJSON;\r",
+									"\r",
+									"try { \r",
+									"    responseJSON = JSON.parse(responseBody); \r",
+									"    tests['Response is valid JSON'] = true;\r",
+									"    \r",
+									"}\r",
+									"catch (e) { \r",
+									"    responseJSON = {}; \r",
+									"    tests['Response is not a valid JSON'] = false;\r",
+									"}\r",
+									"\r",
+									"\r",
+									"pm.test(\"Request was successful\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"//parsing the Response body to a variable\r",
+									"responseJson = JSON.parse(responseBody);\r",
+									"\r",
+									"//Finding the length of the Response Array\r",
+									"//set the number based on entries in db if not test won't pass\r",
+									"var list = responseJson.length;\r",
+									"console.log(list);\r",
+									"tests[\"Validate service returns number of entries in the database \"] = list === 2;\r",
+									"\r",
+									"pm.test(\"Validate service returns some entries (response is not empty) \", function(){\r",
+									"    pm.expect(responseJSON.length).to.be.above(0);\r",
+									"});\r",
+									"\r",
+									"// Getting values from response\r",
+									"var jsonData = pm.response.json();\r",
+									"var preference = jsonData.preference;\r",
+									"pm.globals.set(\"username\", preference);\r",
+									"pm.test(\"Testing if query 'preference' matches with response 'preference'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.value).to.eql(pm.globals.get(\"preference\"));\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "Saravanan",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "username",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/Mealplan?preference=Meat and Veggies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"Mealplan"
+							],
+							"query": [
+								{
+									"key": "preference",
+									"value": "Meat and Veggies"
+								}
+							]
+						},
+						"description": "URL:\r\nhttp://localhost:5000/Mealplan?preference=Viggie\r\n\r\nAPI key authentication enabled.\r\nTest paramerts passed either by URL or \"params\".\r\nTests writte in Chai.\r\n\r\n"
+					},
+					"response": [
+						{
+							"name": "GET Request (Mealplan) - response example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:5000/Mealplan",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"Mealplan"
+									],
+									"query": [
+										{
+											"key": "preference",
+											"value": "Viggie",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "89"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/0.16.0 Python/3.7.4"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 21 Dec 2020 02:21:04 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"M1\",\n        \"recipe_id\": \"R1\",\n        \"preference\": \"Viggie\",\n        \"people\": 3,\n        \"feedback\": \"f1\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "GET Request (Feedbacks)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseJSON;\r",
+									"\r",
+									"try { \r",
+									"    responseJSON = JSON.parse(responseBody); \r",
+									"    tests['Response is valid JSON'] = true;\r",
+									"    \r",
+									"}\r",
+									"catch (e) { \r",
+									"    responseJSON = {}; \r",
+									"    tests['Response is not a valid JSON'] = false;\r",
+									"}\r",
+									"\r",
+									"\r",
+									"pm.test(\"Request was successful\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"//parsing the Response body to a variable\r",
+									"responseJson = JSON.parse(responseBody);\r",
+									"\r",
+									"//Finding the length of the Response Array\r",
+									"//set the number based on entries in db if not test won't pass\r",
+									"var list = responseJson.length;\r",
+									"console.log(list);\r",
+									"tests[\"Validate service returns number of entries in the database \"] = list === 1;\r",
+									"\r",
+									"pm.test(\"Validate service returns some entries (response is not empty) \", function(){\r",
+									"    pm.expect(responseJSON.length).to.be.above(0);\r",
+									"});\r",
+									"\r",
+									"// Getting values from response\r",
+									"var jsonData = pm.response.json();\r",
+									"var username = jsonData.username;\r",
+									"pm.globals.set(\"username\", username);\r",
+									"pm.test(\"Testing if query 'name' matches with response 'username'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.value).to.eql(pm.globals.get(\"username\"));\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "Saravanan",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "username",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/Feedbacks?username=Testing123",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"Feedbacks"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "Testing123"
+								}
+							]
+						},
+						"description": "URL:\r\nhttp://localhost:5000/Feedbacks?username=Testing123\r\n\r\nAPI Key Authentication enabled.\r\nParameters apssed either by \"params\" or in the URL.\r\nTesting script in Chai"
+					},
+					"response": [
+						{
+							"name": "GET Request (Feedbacks) - response example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/Feedbacks",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"Feedbacks"
+									],
+									"query": [
+										{
+											"key": "username",
+											"value": "Testing123",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "153"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/0.16.0 Python/3.7.4"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 21 Dec 2020 02:18:18 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"_id\": \"f1\",\n        \"mealplanid\": \"M1\",\n        \"recipeid\": \" \",\n        \"username\": \"Testing123\",\n        \"userid\": \"u00T\",\n        \"feedback\": {\n            \"comments\": \"wonderful!\",\n            \"rating\": \"3/5\"\n        }\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "POST Request (Feedbacks) Raw Json",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseJSON;\r",
+									"\r",
+									"try { \r",
+									"    responseJSON = JSON.parse(responseBody); \r",
+									"    tests['response is valid JSON'] = true;\r",
+									"}\r",
+									"catch (e) { \r",
+									"    responseJSON = {}; \r",
+									"    tests['response is valid JSON'] = false;\r",
+									"}\r",
+									"tests['response has post message'] = _.has(responseJSON, 'message');\r",
+									"tests['response has post id if successful POST'] = _.has(responseJSON, 'id');\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-type": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "Saravanan",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "username",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDg0NzU2ODUsImlhdCI6MTYwODQ3NTM4NSwibmJmIjoxNjA4NDc1Mzg1LCJpZGVudGl0eSI6MX0.iQllTC69CQwc0414KV2ZXK0pv8MZ51Rh445G0tkDHk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:5000/Feedbacks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"Feedbacks"
+							]
+						},
+						"description": "URL:\r\nhttp://localhost:5000/Feedbacks\r\n\r\nAPI Key Authentication enabled.\r\n test for appropriate message - Test script in Chai\r\n\r\n\r\n"
+					},
+					"response": [
+						{
+							"name": "POST Request (Feedbacks) - response example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"_id\":\"f3\",\r\n    \"mealplanid\":\"null\",\r\n    \"recipeid\":\"R3\",\r\n    \"username\":\"Testing123\",\r\n    \"userid\":\"u00T\",\r\n    \"feedback\":{\r\n        \"comments\":\"spicy!\",\r\n        \"rating\":\"2/5\"\r\n    }\r\n\r\n}"
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/Feedbacks",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"Feedbacks"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/0.16.0 Python/3.7.4"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 21 Dec 2020 02:56:27 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Feedbacks is added!\",\n    \"id\": \"f3\"\n}"
+						}
+					]
+				},
+				{
+					"name": "POST Request (users) Raw Json",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseJSON;\r",
+									"\r",
+									"try { \r",
+									"    responseJSON = JSON.parse(responseBody); \r",
+									"    tests['response is valid JSON'] = true;\r",
+									"}\r",
+									"catch (e) { \r",
+									"    responseJSON = {}; \r",
+									"    tests['response is valid JSON'] = false;\r",
+									"}\r",
+									"tests['response has post message'] = _.has(responseJSON, 'message');\r",
+									"tests['response has post id if successful POST'] = _.has(responseJSON, 'id');\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "Saravanan",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "username",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id\": \"uooT\",\r\n    \"name\": \"Dummy\",\r\n    \"email\": \"Dummy3@gmail.com\",\r\n    \"mealplanid\": \"M2\",\r\n    \"feedbackid\": \"f2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:5000/users",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"users"
+							]
+						},
+						"description": "URL:http://localhost:5000/users\r\n\r\nAPI key authentication enabled\r\nTest to check successful POST operation with Chai"
+					},
+					"response": [
+						{
+							"name": "POST Request (users) Raw Json - response example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"_id\": \"u002\",\r\n    \"name\": \"Dummy\",\r\n    \"email\": \"Dummy3@gmail.com\",\r\n    \"mealplanid\": \"M2\",\r\n    \"feedbackid\": \"f2\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/users",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "40"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/0.16.0 Python/3.7.4"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 21 Dec 2020 03:06:25 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"user added!\",\n    \"id\": \"u002\"\n}"
+						}
+					]
+				},
+				{
+					"name": "POST Request (Mealplan) Raw Json",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseJSON;\r",
+									"\r",
+									"try { \r",
+									"    responseJSON = JSON.parse(responseBody); \r",
+									"    tests['response is valid JSON'] = true;\r",
+									"}\r",
+									"catch (e) { \r",
+									"    responseJSON = {}; \r",
+									"    tests['response is valid JSON'] = false;\r",
+									"}\r",
+									"tests['response has post message'] = _.has(responseJSON, 'message');\r",
+									"tests['response has post id if successful POST'] = _.has(responseJSON, 'id');\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "Saravanan",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "username",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"_id\": \"M2\",\r\n    \"recipe_id\": [\"R2\",\"R1\"],\r\n    \"preference\": \"Meat and Veggies\",\r\n    \"people\": 2,\r\n    \"feedback\": \"f1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/Mealplan",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"Mealplan"
+							]
+						},
+						"description": "http://localhost:5000/Mealplan\r\n\r\nAPI Key authorization enabled\r\nTest if POST request is successful using Chai"
+					},
+					"response": [
+						{
+							"name": "POST Request (Mealplan) Raw Json - response example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"_id\": \"M2\",\r\n    \"recipe_id\": [\"R2\",\"R1\"],\r\n    \"preference\": \"Meat and Veggies\",\r\n    \"people\": 2,\r\n    \"feedback\": \"f1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/Mealplan",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"Mealplan"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "43"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/0.16.0 Python/3.7.4"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 21 Dec 2020 03:15:31 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Meal Plan added!\",\n    \"id\": \"M2\"\n}"
+						}
+					]
+				},
+				{
+					"name": "PUT Request (users) Raw Form",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseJSON;\r",
+									"\r",
+									"try { \r",
+									"    responseJSON = JSON.parse(responseBody); \r",
+									"    tests['response is valid JSON'] = true;\r",
+									"}\r",
+									"catch (e) { \r",
+									"    responseJSON = {}; \r",
+									"    tests['response is valid JSON'] = false;\r",
+									"}\r",
+									"tests['response has put message'] = _.has(responseJSON, 'message');\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "Saravanan",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "username",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Dummy",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "Dummy123@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "mealplanid",
+									"value": "M2",
+									"type": "text"
+								},
+								{
+									"key": "feedbackid",
+									"value": "f2",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/users/Dummy",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"Dummy"
+							]
+						},
+						"description": "URL used to update using username as filer:\r\nhttp://localhost:5000/users/<username>\r\n\r\nAPI key authentication enabled. Test to check successful POST operation with Chai"
+					},
+					"response": [
+						{
+							"name": "PUT Request (users) Raw Form - response example",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "Dummy",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "Dummy@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "mealplanid",
+											"value": "M2",
+											"type": "text"
+										},
+										{
+											"key": "feedbackid",
+											"value": "f2",
+											"type": "text"
+										}
+									],
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:5000/users/Dummy",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"users",
+										"Dummy"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "24"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/0.16.0 Python/3.7.4"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 21 Dec 2020 03:51:14 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"updated!!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "PUT Request (Mealplan) Raw Form",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseJSON;\r",
+									"\r",
+									"try { \r",
+									"    responseJSON = JSON.parse(responseBody); \r",
+									"    tests['response is valid JSON'] = true;\r",
+									"}\r",
+									"catch (e) { \r",
+									"    responseJSON = {}; \r",
+									"    tests['response is valid JSON'] = false;\r",
+									"}\r",
+									"tests['response has put message'] = _.has(responseJSON, 'message');\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "Saravanan",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "username",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "recipe_id",
+									"value": "R1,R2, R3",
+									"type": "text"
+								},
+								{
+									"key": "preference",
+									"value": "Meat and Veggies",
+									"type": "text"
+								},
+								{
+									"key": "people",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "feedback",
+									"value": "f1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/Mealplan/Meat and Veggies",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"Mealplan",
+								"Meat and Veggies"
+							]
+						},
+						"description": "URL used to update using username as filer: http://localhost:5000/Mealplan/\r\n\r\nAPI key authentication enabled. Test to check successful POST operation with Chai"
+					},
+					"response": []
+				},
+				{
+					"name": "PUT request (Recipes) Raw Form",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseJSON;\r",
+									"\r",
+									"try { \r",
+									"    responseJSON = JSON.parse(responseBody); \r",
+									"    tests['response is valid JSON'] = true;\r",
+									"}\r",
+									"catch (e) { \r",
+									"    responseJSON = {}; \r",
+									"    tests['response is valid JSON'] = false;\r",
+									"}\r",
+									"tests['response has put message'] = _.has(responseJSON, 'message');\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "Saravanan",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "username",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "instructions",
+									"value": "In a large Dutch oven (preferably enameled cast iron) over medium-high heat, render the bacon until just starting to crisp, 6 to 7 minutes, stirring as needed. Remove 1 tablespoon of the bacon fat and set aside. Add the onions and jalapenos and cook until the onions are translucent, about 5 minutes more. Add in the garlic cook 1 to 2 minutes. Remove all from the pot to a small bowl. Set aside.\\nWipe down the inside of the pot, add the reserved 1 tablespoon bacon fat and, when starting to smoke, add in 1/3 to 1/2 of the steak and cook, stirring as needed until just starting to brown, about 8 minutes. Remove to the vegetable bowl, repeat with the remaining steak.\\nOnce the steak is cooked, deglaze with 1 tablespoon apple cider vinegar. Then return all the vegetables and cooked steak back to the pot and add in the beans, including the liquid in the can. Add the molasses, brown sugar, soy and ketchup, and stir to combine. Bring to a simmer over low heat, cover and cook for 2 hours, stirring every 20 to 30 minutes to assure that the bottom doesn't stick.\\nAdd in more apple cider vinegar, a few tablespoons at a time to personal taste, and serve with crusty bread.",
+									"type": "text"
+								},
+								{
+									"key": "ingredients",
+									"value": "2 pounds skirt steak, cut into 1/2-inch dices\", \"Kosher salt and fresh cracked black pepper\", \"4 to 6 slices thick-cut applewood smoked bacon, 1/4-inch diced (about 1 cup)\", \"1 1/2 cups 1/4-inch diced red onion\", \"1/2 cup seeded and finely diced jalapenos (2 medium)\", \"3 tablespoons minced garlic\", \"1 teaspoon kosher salt\", \"2 teaspoons fresh cracked black pepper\", \"Apple cider vinegar, best quality\", \"1 (15-ounce) can cannellini beans, with liquid\", \"1 (15-ounce) can lima beans, with liquid\", \"1 (15-ounce) can kidney beans, with liquid\", \"1/3 cup molasses\", \"2 tablespoons dark brown sugar\", \"3 tablespoons soy sauce\", \"1/3 cup ketchup\", \"Crusty bread, for serving",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "Infineon Raceway Baked Beans",
+									"type": "text"
+								},
+								{
+									"key": "feedbacks",
+									"value": "f2",
+									"type": "text"
+								},
+								{
+									"key": "mealplanid",
+									"value": "M1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:5000/Recipes/Infineon Raceway Baked Beans",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"Recipes",
+								"Infineon Raceway Baked Beans"
+							]
+						},
+						"description": "1. REquest URL with recipe title as the filter\r\nhttp://localhost:5000/Recipes/Infineon Raceway Baked Beans\r\n\r\n2. API key Authentication enabled\r\n\r\n3. Test to check if the successful response is recieved using Chai"
+					},
+					"response": [
+						{
+							"name": "PUT request (Recipes) Raw Form - response example",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "instructions",
+											"value": "In a large Dutch oven (preferably enameled cast iron) over medium-high heat, render the bacon until just starting to crisp, 6 to 7 minutes, stirring as needed. Remove 1 tablespoon of the bacon fat and set aside. Add the onions and jalapenos and cook until the onions are translucent, about 5 minutes more. Add in the garlic cook 1 to 2 minutes. Remove all from the pot to a small bowl. Set aside.\\nWipe down the inside of the pot, add the reserved 1 tablespoon bacon fat and, when starting to smoke, add in 1/3 to 1/2 of the steak and cook, stirring as needed until just starting to brown, about 8 minutes. Remove to the vegetable bowl, repeat with the remaining steak.\\nOnce the steak is cooked, deglaze with 1 tablespoon apple cider vinegar. Then return all the vegetables and cooked steak back to the pot and add in the beans, including the liquid in the can. Add the molasses, brown sugar, soy and ketchup, and stir to combine. Bring to a simmer over low heat, cover and cook for 2 hours, stirring every 20 to 30 minutes to assure that the bottom doesn't stick.\\nAdd in more apple cider vinegar, a few tablespoons at a time to personal taste, and serve with crusty bread.",
+											"type": "text"
+										},
+										{
+											"key": "ingredients",
+											"value": "2 pounds skirt steak, cut into 1/2-inch dice\", \"Kosher salt and fresh cracked black pepper\", \"4 to 6 slices thick-cut applewood smoked bacon, 1/4-inch diced (about 1 cup)\", \"1 1/2 cups 1/4-inch diced red onion\", \"1/2 cup seeded and finely diced jalapenos (2 medium)\", \"3 tablespoons minced garlic\", \"1 teaspoon kosher salt\", \"2 teaspoons fresh cracked black pepper\", \"Apple cider vinegar, best quality\", \"1 (15-ounce) can cannellini beans, with liquid\", \"1 (15-ounce) can lima beans, with liquid\", \"1 (15-ounce) can kidney beans, with liquid\", \"1/3 cup molasses\", \"2 tablespoons dark brown sugar\", \"3 tablespoons soy sauce\", \"1/3 cup ketchup\", \"Crusty bread, for serving",
+											"type": "text"
+										},
+										{
+											"key": "title",
+											"value": "Infineon Raceway Baked Beans",
+											"type": "text"
+										},
+										{
+											"key": "feedbacks",
+											"value": "f2",
+											"type": "text"
+										},
+										{
+											"key": "mealplanid",
+											"value": "M1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:5000/Recipes/Infineon Raceway Baked Beans",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"Recipes",
+										"Infineon Raceway Baked Beans"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "24"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/0.16.0 Python/3.7.4"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 21 Dec 2020 07:15:21 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"updated!!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "DELETE Request (users)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseJSON;\r",
+									"\r",
+									"try { \r",
+									"    responseJSON = JSON.parse(responseBody); \r",
+									"    tests['response is valid JSON'] = true;\r",
+									"}\r",
+									"catch (e) { \r",
+									"    responseJSON = {}; \r",
+									"    tests['response is valid JSON'] = false;\r",
+									"}\r",
+									"tests['response has put message'] = _.has(responseJSON, 'message');\r",
+									"tests[\"response has put 'name' for successful deletion\"] = _.has(responseJSON, 'name');\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "Saravanan",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "username",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:5000/users/Dummy",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users",
+								"Dummy"
+							]
+						},
+						"description": "Request URL :\r\nhttp://localhost:5000/users/\"username\"\r\n\r\nAPI Key Authentication enabled.\r\nTest for successful request with Chai."
+					},
+					"response": [
+						{
+							"name": "DELETE Request (users) - response example 1",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "http://localhost:5000/users/Dummy",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"users",
+										"Dummy"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "41"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/0.16.0 Python/3.7.4"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 21 Dec 2020 08:33:57 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Deleted!!\",\n    \"name\": \"Dummy\"\n}"
+						},
+						{
+							"name": "DELETE Request (users) - reponse example 2",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "http://localhost:5000/users/Dummy",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"users",
+										"Dummy"
+									]
+								}
+							},
+							"status": "NOT FOUND",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "44"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/0.16.0 Python/3.7.4"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 21 Dec 2020 08:34:22 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \" username 'Dummy' Not Found!!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "DELETE Request (Mealpan)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseJSON;\r",
+									"\r",
+									"try { \r",
+									"    responseJSON = JSON.parse(responseBody); \r",
+									"    tests['response is valid JSON'] = true;\r",
+									"}\r",
+									"catch (e) { \r",
+									"    responseJSON = {}; \r",
+									"    tests['response is valid JSON'] = false;\r",
+									"}\r",
+									"tests['response has put message'] = _.has(responseJSON, 'message');\r",
+									"tests[\"response has put 'preference' for successful deletion\"] = _.has(responseJSON, 'preference');\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "Saravanan",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "username",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:5000/Mealplan/Viggie",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "5000",
+							"path": [
+								"Mealplan",
+								"Viggie"
+							]
+						},
+						"description": "Request URL :\r\nhttp://localhost:5000/Mealplan/\"preference\"\r\n\r\nAPI key Authentication enabled.\r\nTest to check successful request using Chai."
+					},
+					"response": [
+						{
+							"name": "DELETE Request (Mealpan) - reponse example for already deleted plan",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://127.0.0.1:5000/Mealplan/Viggie",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"Mealplan",
+										"Viggie"
+									]
+								}
+							},
+							"status": "NOT FOUND",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/0.16.0 Python/3.7.4"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 21 Dec 2020 08:40:08 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \" Meal Plan 'Viggie' Not Found!!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "DELETE Request (Recipes)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseJSON;\r",
+									"\r",
+									"try { \r",
+									"    responseJSON = JSON.parse(responseBody); \r",
+									"    tests['response is valid JSON'] = true;\r",
+									"}\r",
+									"catch (e) { \r",
+									"    responseJSON = {}; \r",
+									"    tests['response is valid JSON'] = false;\r",
+									"}\r",
+									"tests['response has put message'] = _.has(responseJSON, 'message');\r",
+									"tests[\"response has put 'title' for successful deletion\"] = _.has(responseJSON, 'title');\r",
+									"\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "Saravanan",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "username",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/Recipes/Infineon Raceway Baked Beans",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"Recipes",
+								"Infineon Raceway Baked Beans"
+							]
+						},
+						"description": "Request URL:\r\nhttp://localhost:5000/Recipes/\"title\"\r\n\r\nAPI Key Authentication enabled.\r\nTest using Chai"
+					},
+					"response": [
+						{
+							"name": "DELETE Request (Recipes) - repsonse example",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:5000/Recipes/Infineon Raceway Baked Beans",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "5000",
+									"path": [
+										"Recipes",
+										"Infineon Raceway Baked Beans"
+									]
+								}
+							},
+							"status": "PRECONDITION FAILED",
+							"code": 412,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "105"
+								},
+								{
+									"key": "Server",
+									"value": "Werkzeug/0.16.0 Python/3.7.4"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 21 Dec 2020 08:53:41 GMT"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \" Recipe 'Infineon Raceway Baked Beans' cannot be deleted without deleting parent Meal plan\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Testing",
+			"item": [
+				{
+					"name": "end to end testing with Chai",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var responseJSON;\r",
+									"\r",
+									"try { \r",
+									"    responseJSON = JSON.parse(responseBody); \r",
+									"    tests['Response is valid JSON'] = true;\r",
+									"    \r",
+									"}\r",
+									"catch (e) { \r",
+									"    responseJSON = {}; \r",
+									"    tests['Response is not a valid JSON'] = false;\r",
+									"}\r",
+									"\r",
+									"\r",
+									"pm.test(\"Request was successful\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"//parsing the Response body to a variable\r",
+									"responseJson = JSON.parse(responseBody);\r",
+									"\r",
+									"//Finding the length of the Response Array\r",
+									"//set the number based on entries in db if not test won't pass\r",
+									"var list = responseJson.length;\r",
+									"console.log(list);\r",
+									"tests[\"Validate service returns number of entries in the database \"] = list === 1;\r",
+									"\r",
+									"pm.test(\"Validate service returns some entries (response is not empty) \", function(){\r",
+									"    pm.expect(responseJSON.length).to.be.above(0);\r",
+									"});\r",
+									"\r",
+									"// Getting values from response\r",
+									"var jsonData = pm.response.json();\r",
+									"var username = jsonData.name;\r",
+									"pm.globals.set(\"username\", username);\r",
+									"pm.test(\"Testing if query 'name' matches with response 'name'\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.value).to.eql(pm.globals.get(\"username\"));\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "in",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "value",
+									"value": "Saravanan",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "username",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Authorization",
+								"value": "jwt eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE2MDg0NzU2ODUsImlhdCI6MTYwODQ3NTM4NSwibmJmIjoxNjA4NDc1Mzg1LCJpZGVudGl0eSI6MX0.iQllTC69CQwc0414KV2ZXK0pv8MZ51Rh445G0tkDHkU",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/users?name=Testing123",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Testing123"
+								}
+							]
+						},
+						"description": "http://localhost:5000/users?name=Testing123"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

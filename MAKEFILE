@@ -1,16 +1,13 @@
 PYTHON = python3
-
 .PHONY = help test run
-
 .DEFAULT_GOAL = setup
 
 help:
- @echo "Write your help here"
- @echo "Write your help here line 2"
+	@echo "help section"
+	@echo "execute make test"
 
+test:
+	${PYTHON} -m pytest
 
-test: ${PYTHON} -m pytest
-
-run: ${PYTHON} app.py
-
-
+run:
+	${PYTHON} app.py

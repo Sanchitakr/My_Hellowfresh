@@ -9,13 +9,16 @@ WORKDIR /home/hello-fresh/
 
 # RUN git clone 
 ADD app.py ./
-ADD Settings/* ./Settings
-ADD Model/* ./Model
+ADD Settings/* ./Settings/
+ADD Model/* ./Model/
 
 COPY requirements.txt ./
 RUN pip install -r requirements.txt
 
-# RUN pip install --no-cache-dir -r requirements.txt
+
+RUN bash hello.sh
+RUN bash Conda_setup.sh
+
 
 # exponsing the port for api
 EXPOSE 5000
