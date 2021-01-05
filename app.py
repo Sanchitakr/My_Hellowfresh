@@ -1,13 +1,13 @@
-import werkzeug
+# import werkzeug
 from flask_pymongo import PyMongo
 from flask import Flask, request, Response
 # from werkzeug.security import generate_password_hash, check_password_hash
-from flask_restplus import Api
+# from flask_restplus import Api
 from flask_jwt import JWT
 from Settings.security import authenticate, identity
 from bson.json_util import dumps
 
-werkzeug.cached_property = werkzeug.utils.cached_property
+# werkzeug.cached_property = werkzeug.utils.cached_property
 
 
 # '''
@@ -20,17 +20,17 @@ werkzeug.cached_property = werkzeug.utils.cached_property
 
 
 app = Flask(__name__)
-api = Api(app,
-          default="Collections",
-          title="Hello fresh weekly meal planner.",
-          description="a Flask-pymongo data service that allows a client to \
-                    read and store some publicly available Hello fresh recipes\
-                     and meal plan, and allow the consumers to access the data\
-                    through a REST API")
+# api = Api(app,
+#           default="Collections",
+#           title="Hello fresh weekly meal planner.",
+#           description="a Flask-pymongo data service that allows a client to \
+#                     read and store some publicly available Hello fresh recipes\
+#                      and meal plan, and allow the consumers to access the data\
+#                     through a REST API")
 app.secret_key = "secretkey"
 jwt = JWT(app, authenticate, identity)
 try:
-    app.config['MONGO_URI'] = "mongodb+srv://Hellofresh_***:*******@cluster0.giqdc.mongodb.net/HelloFresh"
+    app.config['MONGO_URI'] = "mongodb+srv://Hellofresh_user:Hellofresh123@cluster0.giqdc.mongodb.net/HelloFresh"
     mongo = PyMongo(app)
     db = mongo.db
 except Exception as e:
@@ -56,7 +56,7 @@ def users():
             )
         if request.method == 'POST':
             _json = request.get_json()
-            result = db.Meal_Plan.insert_one(_json)
+            result = db.Users.insert_one(_json)
             return Response(
                 response=dumps({"message": "User added!", "id": f"{result.inserted_id}"
                                 }, default=str),
@@ -173,7 +173,7 @@ def mealPlan():
 def update_meal(preference):
     try:
         filter={'preference': preference}
-        newvalues={"$set": {"recipe_id": request.form["recipe_id"],
+        newvalues = {"$set": {"recipe_id": request.form["recipe_id"],
                               "preference": request.form["preference"],
                               "people": request.form["people"],
                               "feedback": request.form["feedback"]}}
@@ -204,7 +204,7 @@ def update_meal(preference):
 # @jwt_required()
 def delete_plan(preference):
     try:
-        dbResponse=db.Meal_Plan.delete_one({"preference": preference})
+        dbResponse = db.Meal_Plan.delete_one({"preference": preference})
         if dbResponse.deleted_count == 1:
             return Response(
                 response=dumps(
@@ -237,7 +237,7 @@ def delete_plan(preference):
 def meal():
     try:
         if request.method == 'GET':
-            data=list(db.Recipes.find())
+            data = list(db.Recipes.find())
             print(data)
             for meal in data:
                 meal["_id"]=str(meal["_id"])
@@ -247,8 +247,8 @@ def meal():
                 mimetype="application/json"
             )
         if request.method == 'POST':
-            _json=request.get_json()
-            result=db.Recipes.insert_one(_json)
+            _json = request.get_json()
+            result = db.Recipes.insert_one(_json)
             # resp = jsonify('Result json %s ' % result.inserted_id)
 
             return Response(
